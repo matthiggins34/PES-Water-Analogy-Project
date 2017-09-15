@@ -9,7 +9,7 @@ Created on Wed Sep 13 13:50:18 2017
 import os
 import sys
 from PyQt5 import uic
-from PyQt5.QtCore import pyqtSlot
+from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import *
 
@@ -17,13 +17,13 @@ class GUI(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        self.window_icon = QIcon("Images/nutty")
+        self.window_icon = QIcon("../Images/nutty")
         self.width = 800
         self.height = 480   
         self.init_main_window()
         
     def init_main_window(self):
-        main_window = uic.loadUi("XML/main.ui", self)
+        main_window = uic.loadUi("../XML/main.ui", self)
         self.setWindowIcon(self.window_icon)
         main_window.setFixedSize(self.width, self.height)
         
@@ -91,7 +91,14 @@ class GUI(QMainWindow):
         parameters_MOSFET = [main_window.spinBox_MOSFET_0.value(),
                             main_window.spinBox_MOSFET_1.value(),
                             main_window.spinBox_MOSFET_2.value()]
-        
+
+        main_window.P1a.setText("P1 = " + str(int(round(main_window.spinBox_BJT_0.value()))))
+        main_window.P2a.setText("P2 = " + str(int(round(main_window.spinBox_BJT_1.value()))))
+        main_window.P3a.setText("P3 = " + str(int(round(main_window.spinBox_BJT_2.value()))))
+
+        main_window.P1b.setText("P1 = " + str(int(round(main_window.spinBox_MOSFET_0.value()))))
+        main_window.P2b.setText("P2 = " + str(int(round(main_window.spinBox_MOSFET_1.value()))))
+        main_window.P3b.setText("P3 = " + str(int(round(main_window.spinBox_MOSFET_2.value()))))
         for i in range(len(checkBoxes)):
             if checkBoxes[i] is True:
                 checked.append(i)
@@ -110,13 +117,13 @@ class InfoWindow(QDialog):
     def __init__(self):
         super().__init__()
         
-        self.window_icon = QIcon("Images/nutty")
+        self.window_icon = QIcon("../Images/nutty")
         self.width = 600
         self.height = 360
         self.init_info_window()
         
     def init_info_window(self):
-        info_window = uic.loadUi("XML/info.ui", self)
+        info_window = uic.loadUi("../XML/info.ui", self)
         self.setWindowIcon(self.window_icon)
         info_window.setFixedSize(self.width, self.height)
         
