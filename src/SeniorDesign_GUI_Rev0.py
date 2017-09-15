@@ -17,13 +17,13 @@ class GUI(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        self.window_icon = QIcon("../Images/nutty")
+        self.window_icon = QIcon("Images/nutty")
         self.width = 800
         self.height = 480   
         self.init_main_window()
         
     def init_main_window(self):
-        main_window = uic.loadUi("../XML/main.ui", self)
+        main_window = uic.loadUi("XML/main.ui", self)
         self.setWindowIcon(self.window_icon)
         main_window.setFixedSize(self.width, self.height)
         
@@ -110,13 +110,13 @@ class InfoWindow(QDialog):
     def __init__(self):
         super().__init__()
         
-        self.window_icon = QIcon("../Images/nutty")
+        self.window_icon = QIcon("Images/nutty")
         self.width = 600
         self.height = 360
         self.init_info_window()
         
     def init_info_window(self):
-        info_window = uic.loadUi("../XML/info.ui", self)
+        info_window = uic.loadUi("XML/info.ui", self)
         self.setWindowIcon(self.window_icon)
         info_window.setFixedSize(self.width, self.height)
         
