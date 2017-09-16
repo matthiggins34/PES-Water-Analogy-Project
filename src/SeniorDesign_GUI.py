@@ -12,6 +12,7 @@ from PyQt5 import uic
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import *
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -91,8 +92,7 @@ class MainWindow(QMainWindow):
             main_window.push_button_stop.toggle()
             main_window.stacked_widget_start_stop.setCurrentIndex(0)
             print("***DEMO STOPPED***")
-    
-    
+
     def demo(self, main_window):
         print("\n***DEMO***")
         
@@ -149,11 +149,13 @@ class MainWindow(QMainWindow):
         print("\nMOSTFET parameters:")
         print(parameters_MOSFET)
         print()
-        
+        self.update_labels(main_window, parameters_BJT, parameters_MOSFET)
+
+    def update_labels(self, main_window, parameters_BJT, parameters_MOSFET):
         # Updates circuit diagram key
-        main_window.P1a.setText("P1 = " + str(float(main_window.spin_box_BJT_0.value())))
-        main_window.P2a.setText("P2 = " + str(float(main_window.spin_box_BJT_1.value())))
-        main_window.P3a.setText("P3 = " + str(float(main_window.spin_box_BJT_2.value())))
+        main_window.P1a.setText("P1 = " + str(parameters_BJT[0]))
+        main_window.P2a.setText("P2 = " + str(parameters_BJT[1]))
+        main_window.P3a.setText("P3 = " + str(parameters_BJT[2]))
 
         main_window.P1b.setText("P1 = " + str(float(parameters_MOSFET[0])))
         main_window.P2b.setText("P2 = " + str("null"))
