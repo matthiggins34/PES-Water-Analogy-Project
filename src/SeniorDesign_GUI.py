@@ -73,6 +73,7 @@ class MainWindow(QMainWindow):
         main_window.comboBox_P1b.addItems(["0", "1", "2", "3", "4", "5"])
         main_window.comboBox_P2b.addItems(["0", "1", "2", "3", "4", "5"])
         main_window.comboBox_P3b.addItems(["0", "1", "2", "3", "4", "5"])
+        main_window.comboBox_P1c.addItems(["0", "1", "2", "3", "4", "5"])
     
     def init_radio_buttons(self, main_window):
         # Under "Settings"
@@ -133,6 +134,8 @@ class MainWindow(QMainWindow):
                              int(main_window.comboBox_P2b.currentText()),
                              int(main_window.comboBox_P3b.currentText())]
         
+        parameters_diode = [int(main_window.comboBox_P1c.currentText())]
+        
         # Displays results        
         print("\nCheckboxes marked:")
         print(checked)
@@ -145,6 +148,9 @@ class MainWindow(QMainWindow):
         
         print("\nMOSTFET parameters:")
         print(parameters_MOSFET)
+        
+        print("\nDiode parameters:")
+        print(parameters_diode)
         print()
 
         
