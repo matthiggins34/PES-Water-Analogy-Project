@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
         self.init_main_window()
         
     def init_main_window(self):
-        main_window = uic.loadUi("../XML/main.ui", self)
+        main_window = uic.loadUi("../XML/main_v0.1.0.ui", self)
         
         # Initialize window itself
         main_window.setFixedSize(self.width, self.height)
