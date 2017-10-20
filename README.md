@@ -1,2 +1,2 @@
-# SeniorDesign
-test
+# IEEE PES at UCF
+
